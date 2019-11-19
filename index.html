@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="https://kit.fontawesome.com/0f9d5ada28.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="styles/main.css">
+  <link href="https://fonts.googleapis.com/css?family=Fjalla+One&display=swap" rel="stylesheet">
+</head>
+<body>
+    <h1>Namita's Daily Journal <i class="fas fa-pencil-alt"></i></h1>
+  <form action="">
+    <fieldset>
+      <label for="journalDate">Date of Entry</label>
+      <input type="date" name='journalDate' id='journalDate'>
+    </fieldset>
+    <fieldset>
+      <label for="conceptsCovered">Concepts Covered</label>
+      <input type="text" name='conceptsCovered' id='conceptsCovered'>      
+    </fieldset>
+    <fieldset>
+      <label for="journalEntry">Journal Entry</label>
+      <textarea placeholder="Enter Daily Journal" rows="4" cols="50" name="journalEntry">
+      </textarea>
+    </fieldset>
+    <fieldset>
+      <label for="moodForTheDay">Mood for The Day</label>  
+      <select name="moodForTheDay">
+          <option value="" selected disable hidden>Select Your Mood</option>
+          <option value="happy">Happy</option>
+          <option value="neutral">Neutral</option>
+          <option value="sad ">Sad</option>
+      </select>    
+    </fieldset>
+    <fieldset>
+      <button>Record your journal entry</button>
+    </fieldset>
+  </form>
+</body>
+</html>

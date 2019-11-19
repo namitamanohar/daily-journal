@@ -1,0 +1,60 @@
+body{
+  background-color: lightblue;
+}
+form{
+  display: flex;
+  flex-direction: column;
+}
+h1{
+  font-family: 'Fjalla One', sans-serif;
+  font-size: 35px; 
+  text-align: center;
+}
+fieldset{
+  align-self: center;
+  display:flex; 
+  flex-direction: column;
+  width: 60%; 
+  font-family: 'Fjalla One', sans-serif;
+  font-size: 20px; 
+  border:none; 
+  margin: 5px; 
+  background-color: lightgoldenrodyellow;
+}
+button{
+  font-family: 'Fjalla One', sans-serif; 
+  background-color: rgb(182, 80, 97);
+  font-size: 25px; 
+}
+
+input[type=text] {
+  box-sizing: border-box;
+  border: 3px solid #ccc;
+  transition: 0.5s;
+  outline: none;
+  font-size: 20px;  
+}
+input[type=date]{
+  box-sizing: border-box;
+  border: 3px solid #ccc;
+  transition: 0.5s;
+  outline: none;
+  font-size: 20px;  
+
+}
+textarea{
+  box-sizing: border-box;
+  border: 3px solid #ccc;
+  transition: 0.5s;
+  outline: none;
+  font-size: 20px;  
+
+}
+select{
+  box-sizing: border-box;
+  border: 3px solid #ccc;
+  transition: 0.5s;
+  outline: none;
+  font-size: 20px;  
+
+}
