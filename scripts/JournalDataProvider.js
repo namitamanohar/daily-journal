@@ -1,5 +1,20 @@
 let entries =[]
 
+
+export const saveEntry = entry => {
+  return fetch('http://localhost:3000/entries', {
+       method: "POST",
+       headers: {
+           "Content-Type": "application/json"
+       },
+       body: JSON.stringify(entry)
+   })
+   .then(getEntries)
+ }
+ 
+
+
+
 export const getEntries = () => {
 
   console.log("about to get data")
@@ -7,7 +22,6 @@ export const getEntries = () => {
   .then(response => response.json())  // Parse as JSON
   .then(parsedEntries => {
     entries=parsedEntries.slice()
-      console.log(entries)
   })
 }
 
@@ -15,7 +29,6 @@ export const getEntries = () => {
 
 
 export const useJournalEntries = () => {
-
 
   const sortedByDate = entries.sort(
       (currentEntry, nextEntry) =>

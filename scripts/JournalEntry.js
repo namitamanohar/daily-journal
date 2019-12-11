@@ -6,7 +6,11 @@ const JournalEntryComponent = (entry) => {
   return `
       <section id="entry--${entry.id}" class="journalEntry">
          <h4 class='date'>${entry.date}</h4>
-         <p class='journalText'>${entry.entry}</p>
+         <div class='journalConcept'>${entry.concept}</div>
+         <hr>
+         <div class='journalText'>${entry.entry}</div>
+         <hr>
+         <div class='journalMood'>${entry.mood}</div>
       </section>
       <hr>
   `

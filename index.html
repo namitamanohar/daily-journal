@@ -10,35 +10,12 @@
   <link href="https://fonts.googleapis.com/css?family=Fjalla+One&display=swap" rel="stylesheet">
 </head>
 <body>
+  <main class="container">
     <h1>Namita's Daily Journal <i class="fas fa-pencil-alt"></i></h1>
-  <form action="">
-    <fieldset>
-      <label for="journalDate">Date of Entry</label>
-      <input type="date" name='journalDate' id='journalDate'>
-    </fieldset>
-    <fieldset>
-      <label for="conceptsCovered">Concepts Covered</label>
-      <input type="text" name='conceptsCovered' id='conceptsCovered'>      
-    </fieldset>
-    <fieldset>
-      <label for="journalEntry">Journal Entry</label>
-      <textarea placeholder="Enter Daily Journal" rows="4" cols="50" name="journalEntry">
-      </textarea>
-    </fieldset>
-    <fieldset>
-      <label for="moodForTheDay">Mood for The Day</label>  
-      <select name="moodForTheDay">
-          <option value="" selected disable hidden>Select Your Mood</option>
-          <option value="happy">Happy</option>
-          <option value="neutral">Neutral</option>
-          <option value="sad ">Sad</option>
-      </select>    
-    </fieldset>
-    <fieldset>
-      <button>Record your journal entry</button>
-    </fieldset>
-  </form>
-  <article class="pastJournals" id="entryLog"></article>
+    <article class="journalForm"></article>
+    <article class="pastJournals" id="entryLog"></article>
+  </main>
+  
   <script type='module' src='./scripts/main.js'></script>
 </body>
 </html>

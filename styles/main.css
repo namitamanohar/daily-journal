@@ -21,7 +21,12 @@ fieldset{
   margin: 5px; 
   background-color: lightgoldenrodyellow;
 }
-button{
+.buttonClick{
+  display:flex; 
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.buttonGroup{
   font-family: 'Fjalla One', sans-serif; 
   background-color: rgb(182, 80, 97);
   font-size: 25px; 
