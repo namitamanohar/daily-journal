@@ -23,17 +23,17 @@ const journalFormComponent = () => {
 
   })
 
-  eventHub.addEventListener("click", clickEvent =>{
-    if(clickEvent.target.id==="showJournalEntries"){
-      const message =new CustomEvent("showJournalEntriesButtonClicked")
+  // eventHub.addEventListener("click", clickEvent =>{
+  //   if(clickEvent.target.id==="showJournalEntries"){
+  //     const message =new CustomEvent("showJournalEntriesButtonClicked")
 
-      eventHub.dispatchEvent(message)
-    }
-  })
+  //     eventHub.dispatchEvent(message)
+  //   }
+  // })
 
   const render = () => {
     contentTarget.innerHTML =`
-    <form id="entryForm">
+    
       <fieldset>
         <label for="journalDate">Date of Entry</label>
         <input type="date" name='journalDate' id='journalDate'>
@@ -56,13 +56,21 @@ const journalFormComponent = () => {
             <option value="sad ">Sad</option>
         </select>    
       </fieldset>
-      <fieldset>
-      </fieldset>
-      </form>
       <section class="buttonClick">
         <button class="buttonGroup" id="saveJournalEntry">Record your journal entry</button>
         <button class="buttonGroup" id="showJournalEntries">Show Old Journal Entries</button>
       </section>
+      <fieldset class="moodFilter">
+      <p class="moodFilter__name">Filter Journal Entries By Mood</p>
+      <div class="moodFilter__radio">
+        <input type="radio" id="moodChoice1" name="mood" value="happy">
+        <label for="moodChoice1">Happy</label>
+        <input type="radio" id="moodChoice2" name="mood" value="neutral">
+        <label for="moodChoice2">Neutral</label>  
+        <input type="radio" id="moodChoice3" name="mood" value="sad">
+        <label for="moodChoice3">Sad</label>
+      </div>
+      </fieldset>
         `
   }
   

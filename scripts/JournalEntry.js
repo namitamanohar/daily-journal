@@ -11,6 +11,7 @@ const JournalEntryComponent = (entry) => {
          <div class='journalText'>${entry.entry}</div>
          <hr>
          <div class='journalMood'>${entry.mood}</div>
+         <button id="deleteEntry--${entry.id}">Delete Entry</button>
       </section>
       <hr>
   `

@@ -75,3 +75,11 @@ select{
   border:1px solid rgb(221, 118, 166); 
   background-color: #ccc ;
 }
+.moodFilter{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+/* .moodFilter__name{
+
+} */
