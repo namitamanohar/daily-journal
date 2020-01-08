@@ -2,31 +2,45 @@
   "entries": [
     {
       "id": 1,
-      "date": "11/15/19",
+      "date": "2019-11-15",
       "concept": "HTML & CSS",
       "entry": "We talked about HTML components and how to make grid layouts with Flexbox in CSS.",
       "mood": "neutral"
     },
     {
       "id": 2,
-      "date": "11/19/19",
+      "date": "2019-11-19",
       "concept": "Javascript",
       "entry": "We incorporated JS into Martin's aquarium using dialog boxes with query selector and add event.",
       "mood": "happy"
     },
     {
       "id": 3,
-      "date": "11/22/19",
+      "date": "2019-11-22",
       "concept": "Javascript + dynamic html",
       "entry": "We took our original HTML from martin's aquarium and instead created an object to then push into a string template",
       "mood": "neutral"
     },
     {
-      "date": "2019-12-11",
+      "date": "2019-11-12",
       "concept": "State of App and API",
       "entry": "Talked about making them in sync        ",
       "mood": "happy",
       "id": 4
+    },
+    {
+      "date": "2020-01-05",
+      "concept": "HTML & CSS test",
+      "entry": "We talked about HTML components and how to make grid layouts with Flexbox in CSS. test ",
+      "mood": "neutral",
+      "id": 6
+    },
+    {
+      "date": "2020-01-07",
+      "concept": "HTML & CSS test",
+      "entry": "We talked about HTML components and how to make grid layouts with Flexbox in CSS.test",
+      "mood": "neutral",
+      "id": 7
     }
   ]
 }

@@ -1,5 +1,15 @@
 let entries =[]
 
+export const editEntry = (entryObject) =>{
+  return fetch(`http://localhost:3000/entries/${entryObject.id}`,{
+    method: 'PUT', 
+    headers:{
+      "Content-Type":"application/json"
+    },
+    body:JSON.stringify(entryObject)
+  })
+  .then(getEntries)
+}
 
 export const saveEntry = entry => {
   return fetch('http://localhost:3000/entries', {

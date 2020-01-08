@@ -1,40 +1,97 @@
-import { saveEntry } from "./JournalDataProvider.js";
+import { saveEntry, useJournalEntries, editEntry } from "./JournalDataProvider.js";
 import EntryListComponent from "./JournalEntryList.js";
 
 const contentTarget=document.querySelector(".journalForm")
 const eventHub=document.querySelector(".container")
 
 const journalFormComponent = () => {
+  
+  eventHub.addEventListener("keypress", event=>{
+    if(event.target.id==="searchInput"){
 
-  eventHub.addEventListener("click", clickEvent =>{
-
-    if(clickEvent.target.id==="saveJournalEntry"){
-      clickEvent.preventDefault()
-      console.log("the click event is working")
-      const newEntry = {
-        "date":document.querySelector("#journalDate").value, 
-        "concept":document.querySelector("#conceptsCovered").value,
-        "entry":document.querySelector("#journalEntry").value,
-        "mood":document.querySelector("#moodDropdown").value,
+      if(event.key==="Enter"){
+        const searchText=document.querySelector("#searchInput").value
+        console.log(searchText)
+        const message = new CustomEvent("searchInitiated",{
+          detail:{
+            searchText:searchText
+          }
+        })
+        eventHub.dispatchEvent(message)
       }
 
-      saveEntry(newEntry).then(()=>document.getElementById("entryForm").reset()).then(()=>EntryListComponent())
     }
-
   })
 
-  // eventHub.addEventListener("click", clickEvent =>{
-  //   if(clickEvent.target.id==="showJournalEntries"){
-  //     const message =new CustomEvent("showJournalEntriesButtonClicked")
+  eventHub.addEventListener("editButtonClicked", event =>{
+    const entryToBeEdited=event.detail.entryId 
 
-  //     eventHub.dispatchEvent(message)
-  //   }
-  // })
+    const allEntries=useJournalEntries()
+
+    // make custom event that capture what was put in the search bar 
+
+
+
+
+    const foundEntry =allEntries.find(
+      (individualEntry) =>{
+        return individualEntry.id=parseInt(entryToBeEdited,10)
+      }
+    )
+    console.log(foundEntry.date)
+    document.querySelector("#journalDate").value=foundEntry.date
+    document.querySelector("#conceptsCovered").value=foundEntry.concept
+    document.querySelector("#journalEntry").value=foundEntry.entry
+    document.querySelector("#moodDropdown").value=foundEntry.mood
+  })
+
+  eventHub.addEventListener("click", clickEvent =>{
+    
+    if(clickEvent.target.id==="saveJournalEntry"){
+      const hiddenInputValue=document.querySelector("#entryId").value
+      if(hiddenInputValue!=""){
+        const editedNote ={
+          "id":parseInt(document.querySelector('#entryId').value,10),
+          "date":document.querySelector('#journalDate').value,
+          "concept":document.querySelector('#conceptsCovered').value,
+          "entry":document.querySelector('#journalEntry').value,
+          "mood":document.querySelector('#moodDropdown').value
+        }
+        editEntry(editedNote).then(()=>{
+          eventHub.dispatchEvent(new CustomEvent("entryHasBeenEdited"))
+        })
+
+
+      } else {
+
+        clickEvent.preventDefault()
+
+        const newEntry = {
+          "date":document.querySelector("#journalDate").value, 
+          "concept":document.querySelector("#conceptsCovered").value,
+          "entry":document.querySelector("#journalEntry").value,
+          "mood":document.querySelector("#moodDropdown").value,
+        }
+  
+        saveEntry(newEntry).then(()=>document.getElementById("entryForm").reset()).then(
+          ()=>{
+              const message =new CustomEvent("entryCreated")
+              eventHub.dispatchEvent(message)   
+          }
+          )
+      }
+
+      }
+
+    })
+
+ 
 
   const render = () => {
     contentTarget.innerHTML =`
-    
+      <form id="entryForm">
       <fieldset>
+      <input type="hidden" name="entryId" id="entryId">
         <label for="journalDate">Date of Entry</label>
         <input type="date" name='journalDate' id='journalDate'>
       </fieldset>
@@ -47,6 +104,7 @@ const journalFormComponent = () => {
         <textarea id="journalEntry" rows="4" cols="50" name="journalEntry">
         </textarea>
       </fieldset>
+      </form>
       <fieldset>
         <label for="moodForTheDay">Mood for The Day</label>  
         <select id="moodDropdown" name="moodForTheDay">
@@ -69,6 +127,10 @@ const journalFormComponent = () => {
         <label for="moodChoice2">Neutral</label>  
         <input type="radio" id="moodChoice3" name="mood" value="sad">
         <label for="moodChoice3">Sad</label>
+        <br>
+      </div>
+      <div class="searchBar">
+      <input id="searchInput" type="text" placeholder="Search.." >
       </div>
       </fieldset>
         `
